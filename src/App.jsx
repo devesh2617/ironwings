@@ -101,7 +101,7 @@ return (
 {/* NAV */}
 <div style={styles.nav}>
 <div style={{display:"flex",alignItems:"center",gap:"10px"}}>
-<img src="/logo.png" width="40"/>
+<img src="/ironwings/logo.png" width="40"/>
 <b>IronWings Marathon</b>
 </div>
 
@@ -112,7 +112,7 @@ return (
 
 {/* HERO */}
 <div style={styles.hero}>
-<img src="/logo.png" width="140"/>
+<img src="/ironwings/logo.png" width="140"/>
 <h1 style={{fontSize:"72px",margin:"20px 0"}}>IRONWINGS MARATHON 2026</h1>
 <p style={{fontSize:"22px"}}>Gurgaon • 5 April 2026 • World Health Day</p>
 
