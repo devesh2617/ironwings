@@ -1,7 +1,7 @@
-
 import React, {useEffect, useState} from "react";
 
 const styles = {
+
 nav:{
 position:"fixed",
 top:0,
@@ -11,11 +11,13 @@ boxShadow:"0 4px 12px rgba(0,0,0,0.08)",
 display:"flex",
 justifyContent:"space-between",
 alignItems:"center",
-padding:"14px 40px",
+padding:"12px 5vw",
 zIndex:1000
 },
+
 hero:{
-height:"100vh",
+minHeight:"100vh",
+padding:"120px 20px 60px",
 backgroundImage:"linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)), url('https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=2070')",
 backgroundSize:"cover",
 backgroundPosition:"center",
@@ -26,47 +28,55 @@ alignItems:"center",
 color:"#fff",
 textAlign:"center"
 },
+
 button:{
 background:"#ff6b00",
 color:"#fff",
-padding:"16px 36px",
+padding:"14px clamp(18px,4vw,36px)",
 borderRadius:"12px",
 border:"none",
-fontSize:"18px",
+fontSize:"clamp(14px,2.5vw,18px)",
 cursor:"pointer",
 fontWeight:"bold",
 boxShadow:"0 10px 25px rgba(0,0,0,.2)"
 },
+
 section:{
-padding:"100px 40px",
+padding:"clamp(60px,10vw,100px) 5vw",
 maxWidth:"1200px",
 margin:"auto"
 },
+
 grid:{
 display:"grid",
-gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))",
-gap:"40px"
+gridTemplateColumns:"repeat(auto-fit,minmax(260px,1fr))",
+gap:"clamp(20px,4vw,40px)"
 },
+
 card:{
 background:"#fff",
-padding:"40px",
+padding:"clamp(24px,4vw,40px)",
 borderRadius:"18px",
 boxShadow:"0 10px 30px rgba(0,0,0,.08)",
 transition:"0.3s"
 },
+
 bigCard:{
 background:"#fff",
-padding:"60px",
+padding:"clamp(30px,5vw,60px)",
 borderRadius:"22px",
-boxShadow:"0 20px 40px rgba(0,0,0,.1)"
+boxShadow:"0 20px 40px rgba(0,0,0,.1)",
+fontSize:"clamp(16px,2.5vw,20px)"
 },
+
 cta:{
 background:"#ff6b00",
 color:"#fff",
-padding:"120px 20px",
+padding:"clamp(60px,12vw,120px) 20px",
 textAlign:"center"
 }
 };
+
 
 function Countdown(){
 const [time,setTime]=useState("");
@@ -90,7 +100,14 @@ setTime(`${d}d ${h}h ${m}m ${s}s`);
 return ()=>clearInterval(timer);
 },[]);
 
-return <h2 style={{fontSize:"32px",marginBottom:"30px"}}>{time}</h2>
+return (
+<h2 style={{
+fontSize:"clamp(20px,5vw,32px)",
+marginBottom:"30px"
+}}>
+{time}
+</h2>
+)
 }
 
 export default function App(){
@@ -101,8 +118,10 @@ return (
 {/* NAV */}
 <div style={styles.nav}>
 <div style={{display:"flex",alignItems:"center",gap:"10px"}}>
-<img src="/ironwings/logo.png" width="40"/>
-<b>IronWings Marathon</b>
+<img src="/ironwings/logo.png" width="36"/>
+<b style={{fontSize:"clamp(14px,2.5vw,18px)"}}>
+IronWings Marathon
+</b>
 </div>
 
 <a href="https://www.townscript.com/e/world-health-day-IronWings-marathon-gurgaon-404444">
@@ -110,11 +129,28 @@ return (
 </a>
 </div>
 
+
 {/* HERO */}
 <div style={styles.hero}>
-<img src="/ironwings/logo.png" width="140"/>
-<h1 style={{fontSize:"72px",margin:"20px 0"}}>IRONWINGS MARATHON 2026</h1>
-<p style={{fontSize:"22px"}}>Gurgaon • 5 April 2026 • World Health Day</p>
+<img 
+src="/ironwings/logo.png" 
+style={{width:"clamp(90px,25vw,140px)"}}
+/>
+
+<h1 style={{
+fontSize:"clamp(32px,8vw,72px)",
+margin:"20px 0",
+lineHeight:"1.1"
+}}>
+IRONWINGS MARATHON 2026
+</h1>
+
+<p style={{
+fontSize:"clamp(16px,3vw,22px)",
+maxWidth:"700px"
+}}>
+Gurgaon • 5 April 2026 • World Health Day
+</p>
 
 <Countdown/>
 
@@ -123,9 +159,16 @@ return (
 </a>
 </div>
 
+
 {/* RACES */}
 <div style={styles.section}>
-<h2 style={{fontSize:"48px",textAlign:"center",marginBottom:"60px"}}>Choose Your Challenge</h2>
+<h2 style={{
+fontSize:"clamp(28px,6vw,48px)",
+textAlign:"center",
+marginBottom:"60px"
+}}>
+Choose Your Challenge
+</h2>
 
 <div style={styles.grid}>
 <div style={styles.card}><h3>21 KM</h3><p>Half Marathon for serious runners.</p></div>
@@ -134,9 +177,16 @@ return (
 </div>
 </div>
 
+
 {/* AMENITIES */}
 <div style={{...styles.section,background:"#fafafa"}}>
-<h2 style={{fontSize:"48px",textAlign:"center",marginBottom:"60px"}}>Elite Amenities</h2>
+<h2 style={{
+fontSize:"clamp(28px,6vw,48px)",
+textAlign:"center",
+marginBottom:"60px"
+}}>
+Elite Amenities
+</h2>
 
 <div style={styles.grid}>
 <div style={styles.bigCard}>🏅 Finisher Medals & Certificates</div>
@@ -148,9 +198,16 @@ return (
 </div>
 </div>
 
+
 {/* PARTNERS */}
 <div style={styles.section}>
-<h2 style={{fontSize:"48px",textAlign:"center",marginBottom:"60px"}}>Booking Partners</h2>
+<h2 style={{
+fontSize:"clamp(28px,6vw,48px)",
+textAlign:"center",
+marginBottom:"60px"
+}}>
+Booking Partners
+</h2>
 
 <div style={styles.grid}>
 <div style={styles.bigCard}>Townscript</div>
@@ -159,12 +216,19 @@ return (
 </div>
 </div>
 
+
 {/* CTA */}
 <div style={styles.cta}>
-<h2 style={{fontSize:"54px"}}>Be Part of Something Epic</h2>
+<h2 style={{
+fontSize:"clamp(32px,7vw,54px)"
+}}>
+Be Part of Something Epic
+</h2>
 
 <a href="https://www.townscript.com/e/world-health-day-IronWings-marathon-gurgaon-404444">
-<button style={{...styles.button,background:"#000"}}>Secure Your Spot</button>
+<button style={{...styles.button,background:"#000"}}>
+Secure Your Spot
+</button>
 </a>
 </div>
 
